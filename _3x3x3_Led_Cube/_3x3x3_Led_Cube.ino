@@ -25,6 +25,10 @@ void loop()
 void intrNLight()
 {
   // TODO: Add code for this mode
+  PORTB = B11111111;
+  PORTC = B11111111;
+  PORTD = B11111111;
+  mode = 10;
 }
 
 // Random pattern mode
