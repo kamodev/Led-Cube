@@ -17,7 +17,7 @@ void setup()
 // Main program
 void loop()
 {
-
+  doMode();
 }
 
 // All the Interrupt handlers
@@ -36,7 +36,7 @@ void intrRndMode()
 // Change mode of the cube
 void intrChangeMode()
 {
-  if (mode == 8)
+  if (mode >= 8)
   {
     mode = 0;
   }
@@ -90,4 +90,9 @@ void doMode()
 void modePacMan()
 {
   // TODO: finish the mode
+}
+
+void modeFireWorks()
+{
+
 }
