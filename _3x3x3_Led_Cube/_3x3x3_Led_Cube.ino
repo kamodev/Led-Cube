@@ -1,4 +1,5 @@
 int mode = 0;
+int color = 0;
 
 // Setup the device for use
 void setup()
@@ -9,9 +10,10 @@ void setup()
   PORTD = B10100101;
 
   // Attach Interrupts
-  attachInterrupt(0, intrNLight, RISING);    // Add night light switch
-  attachInterrupt(1, intrChangeMode, FALLING;    // Add change mode button
-  attachInterrupt(2, intrRndMode, FALLING);    // Add random mode button
+  attachInterrupt(0, intrNLight, RISING);         // Add night light switch
+  attachInterrupt(1, intrChangeMode, FALLING;     // Add change mode button
+  attachInterrupt(2, intrRndMode, FALLING);       // Add random mode button
+  attachInterrupt(3, intrChangeColor, FALLING);   // Add change color 
 }
 
 // Main program
@@ -49,6 +51,8 @@ void intrChangeMode()
     mode++;
   }
 }
+
+
 
 // All of the different modes
 void doMode()
