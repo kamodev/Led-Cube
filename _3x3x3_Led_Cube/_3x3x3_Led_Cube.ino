@@ -4,16 +4,13 @@ int color = 0;
 // Setup the device for use
 void setup()
 {
-  // Set the ports
-  PORTB = B11111111;
-  PORTC = B00000000;
-  PORTD = B10100101;
+  DDRB = 0xff;
+  DDRC = 0xff;
+  DDRD = 0xff;
 
   // Attach Interrupts
   attachInterrupt(0, intrNLight, RISING);         // Add night light switch
   attachInterrupt(1, intrChangeMode, FALLING;     // Add change mode button
-  attachInterrupt(2, intrRndMode, FALLING);       // Add random mode button
-  attachInterrupt(3, intrChangeColor, FALLING);   // Add change color 
 }
 
 // Main program
@@ -27,32 +24,27 @@ void loop()
 void intrNLight()
 {
   // TODO: Add code for this mode
-  PORTB = B11111111;
-  PORTC = B11111111;
-  PORTD = B11111111;
+  PORTB = 0xff;
+  PORTC = 0xff;
+  PORTD = 0xff;
   mode = 10;
-}
-
-// Random pattern mode
-void intrRndMode()
-{
-  mode = 9;
 }
 
 // Change mode of the cube
 void intrChangeMode()
 {
-  if (mode >= 8)
+  if (mode != 10)   // The night light is on
   {
-    mode = 0;
-  }
-  else
-  {
-    mode++;
+    if (mode >= 9)  // Time to reset
+    {
+      mode = 0;
+    }
+    else
+    {
+      mode++;
+    }
   }
 }
-
-
 
 // All of the different modes
 void doMode()
@@ -87,6 +79,14 @@ void doMode()
       // TODO: Mode
       break;
 
+    case 7:
+      // TODO: Mode
+      break;
+
+    case 8:
+      // TODO: Mode
+      break;
+
     case 9:
       // TODO: Mode
       break;
@@ -100,7 +100,8 @@ void modePacMan()
   // TODO: finish the mode
 }
 
+// Mode: Display fireworks
 void modeFireWorks()
 {
-
+  // TODO: Finish the account
 }
