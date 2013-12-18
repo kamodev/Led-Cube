@@ -9,3 +9,14 @@ Led-Cube
 
 
 ####Circuit Description
+
+####Project Steps
+######Step 1:
+The first step in this project is to determine the size of the cube.
+
+######Step 2:
+Determine the number of LEDs needed.
+
+######Step 3:
+
+######Step 4:
