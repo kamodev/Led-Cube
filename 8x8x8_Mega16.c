@@ -2,6 +2,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+// Set the frquency of the clock
 #define F_CPU 4000000UL
 #include <util/delay.h>
 
@@ -14,17 +15,21 @@
 // Mode variable
 int led_mode = 1;
 
+// Start up the io ports
+static void ioinit(void)
+{
+
+}
+
 // Change the mode on request
 // from button or any other input
 void changeMode()
 {
-    if (led_mode == 10)
+    led_mode++;
+
+    if (led_mode >= 10)
     {
         led_mode = 1;
-    }
-    else
-    {
-        led_mode++;
     }
 }
 
@@ -32,6 +37,12 @@ void changeMode()
 ISR(INT0_vect)
 {
     changeMode();
+}
+
+// Night light mode
+ISR(INT1_vect)
+{
+
 }
 
 // Main loop
@@ -42,6 +53,9 @@ int main(void)
     DDRB = 0xff;
     DDRC = 0xff;
     DDRD = 0xff;
+
+    // Init the IO
+    ioinit();
 
     // Loop forever
     while (1)
