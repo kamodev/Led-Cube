@@ -1,5 +1,14 @@
+// The mode variable
 int mode = 0;
-int color = 0;
+
+// Patterns 
+byte dancingCube[] = {
+  0b00000000,
+  0b00000000,
+  0b00000000,
+  0b00000000,
+  0b00000000
+};
 
 // All the patterns in constants for easier data handling
 // The fireworks mode
@@ -137,4 +146,9 @@ void modePacMan()
 void modeFireWorks()
 {
   // TODO: Finish the account
+}
+
+void playDancingCube()
+{
+  
 }
