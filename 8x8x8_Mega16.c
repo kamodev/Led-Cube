@@ -10,16 +10,13 @@
 #define DataPortA    PORTC
 #define DataPortB    PORTC
 #define DataPortC    PORTC
-#define DataPortC    PORTD
+#define DataPortD    PORTD
 
 // Mode variable
 int led_mode = 1;
 
 // Start up the io ports
-static void ioinit(void)
-{
-
-}
+static void ioinit(void) {}
 
 // Change the mode on request
 // from button or any other input
@@ -42,7 +39,10 @@ ISR(INT0_vect)
 // Night light mode
 ISR(INT1_vect)
 {
-
+    DataPortA = 0xff;
+    DataPortB = 0xff;
+    DataPortC = 0xff;
+    DataPortD = 0xff;
 }
 
 // Main loop
@@ -60,6 +60,30 @@ int main(void)
     // Loop forever
     while (1)
     {
+        doMode();
+    }
+}
 
+/*
+ * Move the LEDs to the top layer then
+ * then randomly drop each one to the
+ * lower level
+ */
+void modeRain()
+{
+
+}
+
+/*
+ * This function will run the mode that the
+ * device is in at the time
+ */
+void doMode()
+{
+    switch(led_mode)
+    {
+        case 1:
+            modeRain();
+            break;
     }
 }
