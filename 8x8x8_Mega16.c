@@ -59,7 +59,7 @@ ISR(INT1_vect)
 // Main loop
 int main(void)
 {
-    // Init the IO
+    // Init the project
     init();
 
     // Loop forever
@@ -86,7 +86,7 @@ void modeCycleLayers()
 {
     while (LayerPort < 0x09)
     {
-        LayerPort << 0x01;
+        LayerPort << 1;
         _delay_ms(500);
     }
 }
