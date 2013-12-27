@@ -1,22 +1,33 @@
-// All the include for the MCU
-#include <avr/io.h>
-#include <avr/interrupt.h>
+// Define all the ports
+#define LayerPort    PORTA
+#define DataPortB    PORTB
+#define DataPortC    PORTC
+#define DataPortD    PORTD
 
 // Set the frquency of the clock
 #define F_CPU 4000000UL
-#include <util/delay.h>
 
-// Define all the ports
-#define DataPortA    PORTC
-#define DataPortB    PORTC
-#define DataPortC    PORTC
-#define DataPortD    PORTD
+// All the include for the MCU
+#include <util/delay.h>
+#include <avr/io.h>
+#include <avr/interrupt.h>
 
 // Mode variable
 int led_mode = 1;
 
 // Start up the io ports
-static void ioinit(void) {}
+static void init(void)
+{
+
+    // Set the ouput ports
+    DDRA = 0xff;
+    DDRB = 0xff;
+    DDRC = 0xff;
+    DDRD = 0xff;
+
+    // Enable the global interrupts
+    sei();
+}
 
 // Change the mode on request
 // from button or any other input
@@ -39,7 +50,7 @@ ISR(INT0_vect)
 // Night light mode
 ISR(INT1_vect)
 {
-    DataPortA = 0xff;
+    LayerPort = 0xff;
     DataPortB = 0xff;
     DataPortC = 0xff;
     DataPortD = 0xff;
@@ -48,14 +59,8 @@ ISR(INT1_vect)
 // Main loop
 int main(void)
 {
-    // Set the ouput ports
-    DDRA = 0xff;
-    DDRB = 0xff;
-    DDRC = 0xff;
-    DDRD = 0xff;
-
     // Init the IO
-    ioinit();
+    init();
 
     // Loop forever
     while (1)
@@ -71,7 +76,19 @@ int main(void)
  */
 void modeRain()
 {
+    // This is the cloud layer
+    LayerPort = 0x01;
 
+    _delay_ms(500);
+}
+
+void modeCycleLayers()
+{
+    while (LayerPort < 0x09)
+    {
+        LayerPort << 0x01;
+        _delay_ms(500);
+    }
 }
 
 /*
@@ -85,5 +102,7 @@ void doMode()
         case 1:
             modeRain();
             break;
+        case 2:
+            modeCycleLayers();
     }
 }
