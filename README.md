@@ -5,21 +5,22 @@ Led-Cube
 
 ####Part List
 
-| Part Manufacturer | Distributor | Part Number | Price Per Unit | Quantity |
-| ----------------- | ----------- | ----------- | -------------- | -------- |
-
+| Part Manufacturer     | Distributor | Part Number | Price Per Unit   | Quantity |
+| --------------------- | ----------- | ----------- | --------------   | -------- |
+| RadioShack            |             | 276-0012    | $1.99            | 512      |
+| Texas Instrustruments |             | 74HC595     | $2.29 (lot of 5) |         |
 -----------------------------------------------------------------------------
 
 
 ####Circuit Description
 
 ####Project Steps
-- [x] ######Step 1:
-The first step in this project is to determine the size of the cube.
+######Step 1:
+The first step in this project is to determine the size of the cube.  This cube will 
 
-- [] ######Step 2:
+######Step 2:
 Determine the number of LEDs needed.
 
-- [] ######Step 3:
+######Step 3:
 
-- [] ######Step 4:
+######Step 4:
