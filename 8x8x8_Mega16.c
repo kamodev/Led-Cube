@@ -104,5 +104,6 @@ void doMode()
             break;
         case 2:
             modeCycleLayers();
+            break;
     }
 }

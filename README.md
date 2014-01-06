@@ -19,7 +19,7 @@ Led-Cube
 The first step in this project is to determine the size of the cube.  This cube will 
 
 ######Step 2:
-Determine the number of LEDs needed.
+Determine the number of LEDs needed. This project I will require 512 LEDs.  
 
 ######Step 3:
 
