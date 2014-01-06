@@ -7,8 +7,9 @@ Led-Cube
 
 | Part Manufacturer     | Distributor | Part Number | Price Per Unit   | Quantity |
 | --------------------- | ----------- | ----------- | --------------   | -------- |
-| RadioShack            |             | 276-0012    | $1.99            | 512      |
+| RadioShack            | RadioShack  | 276-0012    | $1.99            | 512      |
 | Texas Instrustruments |             | 74HC595     | $2.29 (lot of 5) |         |
+| Atmel                 | Atmel       | ATMega16    |                  |           |
 -----------------------------------------------------------------------------
 
 
